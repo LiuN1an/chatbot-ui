@@ -1,7 +1,7 @@
 import { OpenAIModel, OpenAIModelID, OpenAIModels } from "@/types";
 
 export const config = {
-  runtime: "edge"
+  runtime: "edge",
 };
 
 const handler = async (req: Request): Promise<Response> => {
@@ -10,12 +10,17 @@ const handler = async (req: Request): Promise<Response> => {
       key: string;
     };
 
-    const response = await fetch("https://api.openai.com/v1/models", {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${key ? key : process.env.OPENAI_API_KEY}`
+    const response = await fetch(
+      `https://${process.env.OPENAI_URL}/v1/models`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${
+            key ? key : process.env.OPENAI_API_KEY
+          }`,
+        },
       }
-    });
+    );
 
     if (response.status !== 200) {
       throw new Error("OpenAI API returned an error");
@@ -29,7 +34,7 @@ const handler = async (req: Request): Promise<Response> => {
           if (value === model.id) {
             return {
               id: model.id,
-              name: OpenAIModels[value].name
+              name: OpenAIModels[value].name,
             };
           }
         }
