@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chatui/core": "^2.4.2",
     "@dqbd/tiktoken": "^1.0.2",
     "@tabler/icons-react": "^2.9.0",
+    "@types/marked": "^5.0.0",
     "@types/node": "18.15.0",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
@@ -18,13 +20,13 @@
     "eslint-config-next": "13.2.4",
     "eventsource-parser": "^0.1.0",
     "i18next": "^22.4.13",
+    "marked": "^5.0.4",
     "next": "13.2.4",
     "next-i18next": "^13.2.2",
     "openai": "^3.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-i18next": "^12.2.0",
-    "react-markdown": "^8.0.5",
     "react-syntax-highlighter": "^15.5.0",
     "remark-gfm": "^3.0.1",
     "typescript": "4.9.5"
